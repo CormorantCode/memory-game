@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width,
+                 initial-scale=1.0" />
+
+    <title>Memory Game</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css" />
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <h1>Memory Game</h1>
+
+        <div class="controls">
+
+            <button
+                id="restart-button">
+                Restart
+            </button>
+
+            <button
+                class="difficulty-button"
+                data-size="3x4">
+                3x4
+            </button>
+
+            <button
+                class="difficulty-button"
+                data-size="4x4">
+                4x4
+            </button>
+
+            <button
+                class="difficulty-button"
+                data-size="4x5">
+                4x5
+            </button>
+
+            <button
+                class="difficulty-button"
+                data-size="4x6">
+                4x6
+            </button>
+
+            <select id="theme-select">
+                <option value="origami">Origami</option>
+                <option value="flowers">Flowers</option>
+                <option value="shapes">Shapes</option>
+            </select>
+
+        </div>
+
+        <div class="stats">
+
+            <span>
+                Moves:
+                <span id="move-counter">
+                    0
+                </span>
+            </span>
+
+            <span>
+                ⏱ Time:
+                <span id="timer">
+                    00:00
+                </span>
+            </span>
+
+        </div>
+
+        <div
+            id="game-board"
+            class="game-board">
+        </div>
+
+        <div
+            id="win-modal"
+            class="modal hidden">
+
+            <div class="modal-content">
+
+                <h2>
+                    Puzzle Complete!
+                </h2>
+
+                <p id="modal-stats">
+                </p>
+
+                <button
+                    id="close-modal">
+                    Close
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

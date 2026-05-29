@@ -1,0 +1,255 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+#restart-button,
+.difficulty-button {
+    background: #7874b4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+#restart-button:hover,
+.difficulty-button:hover {
+    opacity: 0.9;
+}
+
+#theme-select {
+    background: #7874b4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+#theme-select:hover {
+    opacity: 0.9;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 22px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.game-board {
+    display: grid;
+    justify-content: center;
+    gap: 12px;
+}
+
+.card {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.45s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner,
+.card.matched .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.card-front {
+    background-image:
+        url("images/Origami/origami-00-cardback.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 2px solid #d1d5db;
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.win-message {
+    margin-top: 22px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #16a34a;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---------- BOARD SIZES ---------- */
+
+.board-3x4 .card {
+    width: 150px;
+    height: 150px;
+}
+
+.board-4x4 .card {
+    width: 130px;
+    height: 130px;
+}
+
+.board-4x5 .card {
+    width: 118px;
+    height: 118px;
+}
+
+.board-4x6 .card {
+    width: 105px;
+    height: 105px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .board-3x4 .card {
+        width: 88px;
+        height: 88px;
+    }
+
+    .board-4x4 .card {
+        width: 76px;
+        height: 76px;
+    }
+
+    .board-4x5 .card {
+        width: 66px;
+        height: 66px;
+    }
+
+    .board-4x6 .card {
+        width: 66px;
+        height: 66px;
+    }
+
+    .stats {
+        gap: 18px;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+/* ---------- WIN MODAL ---------- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;         /* ← hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal:not(.hidden) {
+    display: flex;         /* ← only shown when .hidden is removed */
+}
+
+.modal-content {
+    background: white;
+    padding: 32px;
+    border-radius: 18px;
+    text-align: center;
+
+    width: 320px;
+    max-width: 90%;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #222;
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin: 18px 0 24px;
+    color: #444;
+}
+
+#close-modal {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#close-modal:hover {
+    opacity: 0.9;
+}
